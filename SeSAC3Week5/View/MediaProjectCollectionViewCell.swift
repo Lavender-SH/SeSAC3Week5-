@@ -17,5 +17,11 @@ class MediaProjectCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        mediaProjectImageView.image = UIImage(systemName: "star.fill")
+        //mediaProjectImageView.backgroundColor = UIColor.clear
+    }
 
 }

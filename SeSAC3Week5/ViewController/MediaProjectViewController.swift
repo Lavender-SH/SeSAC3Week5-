@@ -144,7 +144,10 @@ extension MediaProjectViewController: UICollectionViewDataSource, UICollectionVi
         
 
         let url = "https://www.themoviedb.org/t/p/w220_and_h330_face\(similarList.results[indexPath.item].posterPath ?? "")"
-        cell.mediaProjectImageView.kf.setImage(with: URL(string: url))
+        
+        DispatchQueue.main.async {
+            cell.mediaProjectImageView.kf.setImage(with: URL(string: url))
+        }
         return cell
 
     }
