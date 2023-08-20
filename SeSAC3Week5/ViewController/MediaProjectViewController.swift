@@ -59,14 +59,12 @@ class MediaProjectViewController: UIViewController {
                 group.leave()
             }
         }
-
+        
         
         group.notify(queue: .main) {
             print("END")
             self.mediaCollectionView.reloadData()
         }
-    
-        
     }
 // MARK: - Similar API
     func callSimilar(id: Int, completionHandler: @escaping (Similar) -> Void) {
@@ -144,10 +142,11 @@ extension MediaProjectViewController: UICollectionViewDataSource, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MediaProjectCollectionViewCell", for: indexPath) as? MediaProjectCollectionViewCell else { return UICollectionViewCell() }
         
-        
-        let url = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/\(similarList.results[indexPath.item].posterPath ?? "")"
+
+        let url = "https://www.themoviedb.org/t/p/w220_and_h330_face\(similarList.results[indexPath.item].posterPath ?? "")"
         cell.mediaProjectImageView.kf.setImage(with: URL(string: url))
         return cell
+
     }
 }
 // MARK: - 컬렉션뷰 필수 프로토콜
@@ -157,7 +156,7 @@ extension MediaProjectViewController: TwoCollectionViewAttributeProtocol{
         mediaCollectionView.delegate = self
         mediaCollectionView.dataSource = self
         
-        mediaCollectionView.register(UINib(nibName: MediaProjectCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: PosterCollectionViewCell.identifier)
+        mediaCollectionView.register(UINib(nibName: MediaProjectCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: MediaProjectCollectionViewCell.identifier)
         
     }
 }
