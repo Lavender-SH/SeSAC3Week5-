@@ -12,11 +12,17 @@ class PosterCollectionViewCell: UICollectionViewCell {
     @IBOutlet var posterImageView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        posterImageView.backgroundColor = UIColor.blue
+        
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        posterImageView.image = nil
+        posterImageView.backgroundColor = UIColor.clear
     }
 
 }
+
+

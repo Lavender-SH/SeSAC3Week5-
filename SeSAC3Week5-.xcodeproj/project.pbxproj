@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0217C42B2A8EF04B00811E01 /* GmarketSansMedium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0217C4282A8EF04B00811E01 /* GmarketSansMedium.otf */; };
+		0217C42C2A8EF04B00811E01 /* GmarketSansBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0217C4292A8EF04B00811E01 /* GmarketSansBold.otf */; };
+		0217C42D2A8EF04B00811E01 /* GmarketSansLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0217C42A2A8EF04B00811E01 /* GmarketSansLight.otf */; };
+		0217C42F2A92402D00811E01 /* MediaProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0217C42E2A92402D00811E01 /* MediaProjectViewController.swift */; };
+		0217C4312A9249D700811E01 /* Similar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0217C4302A9249D700811E01 /* Similar.swift */; };
+		0217C4342A92542B00811E01 /* MediaProjectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0217C4322A92542B00811E01 /* MediaProjectCollectionViewCell.swift */; };
+		0217C4352A92542B00811E01 /* MediaProjectCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0217C4332A92542B00811E01 /* MediaProjectCollectionViewCell.xib */; };
+		0217C4372A925DDE00811E01 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0217C4362A925DDE00811E01 /* Video.swift */; };
 		023C0BAE2A8DF582002E548C /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 023C0BAD2A8DF582002E548C /* Kingfisher */; };
 		041AE3CD2A899B28007724AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041AE3CC2A899B28007724AE /* AppDelegate.swift */; };
 		041AE3CF2A899B28007724AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041AE3CE2A899B28007724AE /* SceneDelegate.swift */; };
@@ -36,6 +44,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0217C4282A8EF04B00811E01 /* GmarketSansMedium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GmarketSansMedium.otf; sourceTree = "<group>"; };
+		0217C4292A8EF04B00811E01 /* GmarketSansBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GmarketSansBold.otf; sourceTree = "<group>"; };
+		0217C42A2A8EF04B00811E01 /* GmarketSansLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GmarketSansLight.otf; sourceTree = "<group>"; };
+		0217C42E2A92402D00811E01 /* MediaProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaProjectViewController.swift; sourceTree = "<group>"; };
+		0217C4302A9249D700811E01 /* Similar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Similar.swift; sourceTree = "<group>"; };
+		0217C4322A92542B00811E01 /* MediaProjectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaProjectCollectionViewCell.swift; sourceTree = "<group>"; };
+		0217C4332A92542B00811E01 /* MediaProjectCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MediaProjectCollectionViewCell.xib; sourceTree = "<group>"; };
+		0217C4362A925DDE00811E01 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		041AE3C92A899B28007724AE /* SeSAC3Week5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSAC3Week5.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		041AE3CC2A899B28007724AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		041AE3CE2A899B28007724AE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +93,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0217C4272A8EEFFE00811E01 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				0217C4292A8EF04B00811E01 /* GmarketSansBold.otf */,
+				0217C42A2A8EF04B00811E01 /* GmarketSansLight.otf */,
+				0217C4282A8EF04B00811E01 /* GmarketSansMedium.otf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		041AE3C02A899B28007724AE = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +123,7 @@
 		041AE3CB2A899B28007724AE /* SeSAC3Week5 */ = {
 			isa = PBXGroup;
 			children = (
+				0217C4272A8EEFFE00811E01 /* Font */,
 				6A2503112A8DE92D00211DF9 /* Movie */,
 				6A2503092A8DC92F00211DF9 /* Weather */,
 				6A2503062A8DB23900211DF9 /* Protocol */,
@@ -144,6 +171,7 @@
 				041AE3D02A899B28007724AE /* ViewController.swift */,
 				6AB7B85B2A8C4B4D001A31A7 /* CodableViewController.swift */,
 				6AA1143B2A8C77A600B4C93F /* PosterViewController.swift */,
+				0217C42E2A92402D00811E01 /* MediaProjectViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -189,6 +217,8 @@
 			children = (
 				6A2503132A8DE94800211DF9 /* MovieManager.swift */,
 				6A2503152A8DED7400211DF9 /* Recommendation.swift */,
+				0217C4302A9249D700811E01 /* Similar.swift */,
+				0217C4362A925DDE00811E01 /* Video.swift */,
 			);
 			path = Movie;
 			sourceTree = "<group>";
@@ -196,6 +226,8 @@
 		6AA114342A8C751C00B4C93F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0217C4322A92542B00811E01 /* MediaProjectCollectionViewCell.swift */,
+				0217C4332A92542B00811E01 /* MediaProjectCollectionViewCell.xib */,
 				6AA114302A8C751100B4C93F /* PosterCollectionViewCell.swift */,
 				6AA114312A8C751100B4C93F /* PosterCollectionViewCell.xib */,
 				6AA114372A8C761B00B4C93F /* HeaderPosterCollectionReusableView.swift */,
@@ -244,7 +276,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 041AE3C42A899B28007724AE /* Build configuration list for PBXProject "이유진SeSAC3Week5" */;
+			buildConfigurationList = 041AE3C42A899B28007724AE /* Build configuration list for PBXProject "SeSAC3Week5-" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -275,8 +307,12 @@
 				041AE3E22A899D1C007724AE /* .gitignore in Resources */,
 				6AA1143A2A8C761B00B4C93F /* HeaderPosterCollectionReusableView.xib in Resources */,
 				041AE3D92A899B29007724AE /* LaunchScreen.storyboard in Resources */,
+				0217C42C2A8EF04B00811E01 /* GmarketSansBold.otf in Resources */,
+				0217C42D2A8EF04B00811E01 /* GmarketSansLight.otf in Resources */,
 				6AA114332A8C751100B4C93F /* PosterCollectionViewCell.xib in Resources */,
 				041AE3D62A899B29007724AE /* Assets.xcassets in Resources */,
+				0217C4352A92542B00811E01 /* MediaProjectCollectionViewCell.xib in Resources */,
+				0217C42B2A8EF04B00811E01 /* GmarketSansMedium.otf in Resources */,
 				041AE3D42A899B28007724AE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,7 +325,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				041AE3D12A899B28007724AE /* ViewController.swift in Sources */,
+				0217C4342A92542B00811E01 /* MediaProjectCollectionViewCell.swift in Sources */,
 				041AE3CD2A899B28007724AE /* AppDelegate.swift in Sources */,
+				0217C42F2A92402D00811E01 /* MediaProjectViewController.swift in Sources */,
 				6A2503052A8DABDC00211DF9 /* LottoManager.swift in Sources */,
 				6A2503162A8DED7400211DF9 /* Recommendation.swift in Sources */,
 				6AA114392A8C761B00B4C93F /* HeaderPosterCollectionReusableView.swift in Sources */,
@@ -303,7 +341,9 @@
 				6AA114322A8C751100B4C93F /* PosterCollectionViewCell.swift in Sources */,
 				6A25030B2A8DC97E00211DF9 /* WeatherManager.swift in Sources */,
 				041AE3CF2A899B28007724AE /* SceneDelegate.swift in Sources */,
+				0217C4312A9249D700811E01 /* Similar.swift in Sources */,
 				041AE3E72A899D84007724AE /* Endpoint.swift in Sources */,
+				0217C4372A925DDE00811E01 /* Video.swift in Sources */,
 				6A2503082A8DB24C00211DF9 /* ReusableViewProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -509,7 +549,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		041AE3C42A899B28007724AE /* Build configuration list for PBXProject "이유진SeSAC3Week5" */ = {
+		041AE3C42A899B28007724AE /* Build configuration list for PBXProject "SeSAC3Week5-" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				041AE3DB2A899B29007724AE /* Debug */,

@@ -34,31 +34,96 @@ class PosterViewController: UIViewController {
         // 13855 추격자
         // 557 -spider-man 스파이더맨
         // 27205 -inception 인셉션
-        callRecommendation(id: 671) { data in
-            self.list = data
-            self.posterCollectionView.reloadData()
-        }
-        callRecommendation(id: 479718) { data in
-            self.secondList = data
-            self.posterCollectionView.reloadData()
-        }
-        callRecommendation(id: 157336) { data in
-            self.thirdList = data
-            self.posterCollectionView.reloadData()
-        }
-        callRecommendation(id: 557) { data in
-            self.fourthList = data
-            self.posterCollectionView.reloadData()
-        }
 
-        
+//        callRecommendation(id: 671) { data in
+//            self.list = data
+//            self.posterCollectionView.reloadData()
+//        }
+//        callRecommendation(id: 479718) { data in
+//            self.secondList = data
+//            self.posterCollectionView.reloadData()
+//        }
+//        callRecommendation(id: 157336) { data in
+//            self.thirdList = data
+//            self.posterCollectionView.reloadData()
+//        }
+//        callRecommendation(id: 557) { data in
+//            self.fourthList = data
+//            self.posterCollectionView.reloadData()
+//        }
         configureCollectionView()
         configureCollectionViewLayout()
+        
+//        for item in UIFont.familyNames {
+//            print(item)
+//
+//            for name in UIFont.fontNames(forFamilyName: item) {
+//                print("===\(name)")
+//            }
+//        }
+//        let id = [671, 479718, 157336, 557]
+//        let group = DispatchGroup()
+//        for item in id {
+//            group.enter()
+//            callRecommendation(id: item) { data in
+//                if item == 673 {
+//                    self.list = data
+//                }
+//            }
+//            group.leave()
+//        }
+//        group.notify(queue: .main) {
+//            self.posterCollectionView.reloadData()
+//        }
+        dispatchGroupLeave()
+    }
+    
+    func dispatchGroupLeave() {
+        let group = DispatchGroup()
+        
+        group.enter() // +1
+        DispatchQueue.global().async(group: group) {
+            self.callRecommendation(id: 671) { data in
+                self.list = data
+                print("===1===")
+                group.leave() // -1
+            }
+        }
+        group.enter()
+        DispatchQueue.global().async(group: group) {
+            self.callRecommendation(id: 479718) { data in
+                self.secondList = data
+                print("===2===")
+                group.leave()
+            }
+        }
+        group.enter()
+        DispatchQueue.global().async(group: group) {
+            self.callRecommendation(id: 157336) { data in
+                self.thirdList = data
+                print("===3===")
+                group.leave()
+            }
+        }
+        group.enter()
+        DispatchQueue.global().async(group: group) {
+            self.callRecommendation(id: 557) { data in
+                self.fourthList = data
+                print("===4===")
+                group.leave()
+            }
+        }
+        
+        group.notify(queue: .main) {
+            print("END")
+            self.posterCollectionView.reloadData()
+        }
+        
     }
     
     func callRecommendation(id: Int, completionHandler: @escaping (Recommendation) -> Void) {
         let url = "https://api.themoviedb.org/3/movie/\(id)/recommendations?api_key=\(APIKey.tmdb)&language=ko-KR"
-        
+    
         AF.request(url,method: .get).validate(statusCode: 200...500)
             .responseDecodable(of:Recommendation.self){ response in
                 switch response.result {
@@ -74,6 +139,27 @@ class PosterViewController: UIViewController {
         
             
     }
+    
+    @IBAction func sendNotification(_ sender: UIButton) {
+        //포그라운드에서 알림이 안뜨는게 디폴트
+        //1. 컨텐츠 2. 언제 => 알림 보내!
+        let content = UNMutableNotificationContent()
+        content.title = "다마고치에게 물을 주세요"
+        content.body = "아직 레벨3 이예요. 물을 주세요!!"
+        content.badge = 100
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        
+        let request = UNNotificationRequest(identifier: "\(Date())", content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request) { error in
+            print(error)
+        }
+    }
+    
+    
+    
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         showAlert(title: "테스트 얼럿", message: "메세지 입니다", button:"배경색 변경"){
@@ -141,23 +227,13 @@ extension PosterViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionView.elementKindSectionHeader {
             
             guard let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "HeaderPosterCollectionReusableView", for: indexPath) as? HeaderPosterCollectionReusableView else { return UICollectionReusableView() }
             
             view.titleLabel.text = "테스트 섹션"
+            view.titleLabel.font = UIFont(name:"GmarketSansBold", size: 20)
             return view
             
         } else {
