@@ -41,8 +41,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
+    // 포그라운드 =>  친구랑 1:1 채팅 / 다른 단톡방, 다른 갠톡방
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        
+        // 특정 화면, 특정 조건에서만 포그라운드 알림 받기
+        // 특정 화면에서는 알림 안받기
         completionHandler([.sound, .badge, .banner, .list])
     }
+        // 특정 푸시 클릭하면 특정 화면으로 이동
+        // 알림 갯수 제한 : 64개 제한 (identifier)
+        // 포그라운드로 앱을 켜는 순간, 등록되어 있던 모든 알림들을 제거
+        // 잔디 :
 }
 

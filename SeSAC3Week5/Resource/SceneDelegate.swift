@@ -29,7 +29,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneDidBecomeActive(_ scene: UIScene) {
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
-        UIApplication.shared.applicationIconBadgeNumber = 10
+        UIApplication.shared.applicationIconBadgeNumber = 0
+        //스택에 쌓인 알림(이미 전달된 알림)을 제거한다.
+        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+        //전달된 예정인 알림을 제거한다.
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
